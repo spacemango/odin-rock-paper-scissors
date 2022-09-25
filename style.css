@@ -1,0 +1,109 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;900&display=swap');
+
+/* COLOURS */
+:root {
+   --background-color: #fffcf2;
+   --secondary: #252422;
+   --text: #403d39;
+   --text-light: #ccc5b9;
+   --orange: #eb5e28;
+}
+
+body {
+   height: 100vh;
+   background-color: var(--background-color);
+   margin: 0;
+   display: flex;
+   justify-content: center;
+   font-family: 'Montserrat', sans-serif;
+   color: var(--text);
+   overflow: hidden;
+}
+
+p {
+   margin: 7px;
+}
+
+.container {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+
+h1 {
+   font-family: 'Rubik Dirt', cursive;
+   font-size: 50px;
+   color: var(--secondary);
+   margin-bottom: 10px;
+}
+
+.round h1 {
+   font-family: 'Fjalla One', sans-serif;
+}
+
+.content {
+   display: flex;
+   flex-direction: column;
+   flex: 1;
+   justify-content: center;
+   align-items: center;
+   margin-bottom: 10px;
+}
+
+.round-result {
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 600;
+   font-size: 30px;
+   margin: 10px;
+   padding: 20px;
+   text-align: center;
+}
+
+.user-input button {
+   background-color: transparent;
+   border: 0;
+   cursor: pointer;
+}
+
+.user-input button img {
+   opacity: 0.5;
+}
+.user-input button img:hover {
+   opacity: 1;
+}
+.score-display {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   width: 100%;
+}
+
+.score-display h2 {
+   text-align: center;
+}
+.score {
+   display: flex;
+   justify-content: space-between;
+   font-weight: bold;
+   font-size: 20px;
+}
+
+footer {
+   background-color: var(--text);
+   color: var(--text-light);
+   margin-top: 10px;
+   padding: 20px;
+   display: flex;
+   justify-content: center;
+}
+
+.reset-game {
+   margin-top: 20px;
+   padding: 20px;
+   font-weight: bold;
+   font-size: 30px;
+   cursor: pointer;
+}
