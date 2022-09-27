@@ -7,6 +7,7 @@ let gameMsg = document.querySelector('.game-result');
 let playerScore = document.querySelector('.player-score');
 let cpuScore = document.querySelector('.cpu-score');
 let score = document.querySelector('.score-display');
+let btn = document.querySelector('.btn-img');
 
 // Counters
 let gameCount = 0;
@@ -32,9 +33,13 @@ const resetGame = () => {
    player = 0;
    cpu = 0;
 
-   resetGameMsg.hidden = true;
    playerScore.innerHTML = `Player: ${player}`;
    cpuScore.innerHTML = `CPU: ${cpu}`;
+
+   gameMsg.hidden = true;
+   btn.removeAttribute('disabled');
+   resetGameMsg.hidden = true;
+   btn.style.cursor = 'pointer';
 };
 
 
@@ -75,39 +80,46 @@ const roundResultMsg = (msg, playerSelection, computerSelection) => {
       : msg === 'tie' ? roundMsg.innerHTML = tieMsg
          : roundMsg.innerHTML = loseMsg;
 
-   resetGameMsg.hidden = false;
 };
 
 // Start the game onload
 const game = () => {
 
    let roundResult = '';
-   if (gameCount < 5) {
 
-      document.querySelector('.btn-img')
-         .addEventListener('click', (e) => {
-            roundResult = playRound(e.target.className, getComputerChoice());
+   document.querySelector('.btn-img')
+      .addEventListener('click', (e) => {
+         roundResult = playRound(e.target.className, getComputerChoice());
 
-            if (roundResult === 'win') {
-               player++;
-            } else if (roundResult === 'lose') {
-               cpu++;
+         if (roundResult === 'win') {
+            player++;
+
+            if (player === 5) {
+               gameOver();
             }
 
-            gameCount++;
-            playerScore.innerHTML = `Player: ${player}`;
-            cpuScore.innerHTML = `CPU: ${cpu}`;
-         });
+         } else if (roundResult === 'lose') {
+            cpu++;
 
-   } else {
-      console.log('Game Over');
-   }
+            if (cpu === 5) {
+               gameOver();
+            }
+         }
 
-   // Player resets game
-   document.querySelector('.reset-game').addEventListener('click', () => {
-      resetGame();
-   });
+         playerScore.innerHTML = `Player: ${player}`;
+         cpuScore.innerHTML = `CPU: ${cpu}`;
+      });
 };
+
+const gameOver = () => {
+   gameMsg.hidden = false;
+   resetGameMsg.hidden = false;
+   btn.disabled = true;
+   btn.style.cursor = 'default';
+};
+
+// Player resets game
+document.querySelector('.reset-game').addEventListener('click', resetGame);
 
 // Init
 game();

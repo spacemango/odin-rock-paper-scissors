@@ -1,7 +1,7 @@
 /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400;600;900&display=swap');
 
 /* COLOURS */
 :root {
@@ -40,6 +40,13 @@ h1 {
    margin-bottom: 10px;
 }
 
+.game-result h1 {
+   font-family: 'Fjalla One', sans-serif;
+   color: var(--orange);
+   font-size: 36px;
+   margin-bottom: 30px;
+}
+
 .round h1 {
    font-family: 'Fjalla One', sans-serif;
 }
@@ -66,13 +73,6 @@ h1 {
    background-color: transparent;
    border: 0;
    cursor: pointer;
-}
-
-.user-input button img {
-   opacity: 0.5;
-}
-.user-input button img:hover {
-   opacity: 1;
 }
 .score-display {
    display: flex;
@@ -103,7 +103,7 @@ footer {
 .reset-game {
    margin-top: 20px;
    padding: 20px;
-   font-weight: bold;
+   font-weight: 200;
    font-size: 30px;
    cursor: pointer;
 }
