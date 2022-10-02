@@ -8,6 +8,7 @@ let playerScore = document.querySelector('.player-score');
 let cpuScore = document.querySelector('.cpu-score');
 let score = document.querySelector('.score-display');
 let btn = document.querySelector('.btn-img');
+let objective = document.querySelector('.objective');
 
 // Counters
 let gameCount = 0;
@@ -60,7 +61,6 @@ const playRound = (playerSelection, computerSelection) => {
    roundResultMsg(result, playerSelection, computerSelection);
    return result;
 };
-
 
 // Insert round result to DOM
 const roundResultMsg = (msg, playerSelection, computerSelection) => {
@@ -116,6 +116,7 @@ const gameOver = () => {
    resetGameMsg.hidden = false;
    btn.disabled = true;
    btn.style.cursor = 'default';
+   objective.hidden = true;
 };
 
 // Player resets game
