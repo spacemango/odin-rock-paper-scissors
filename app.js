@@ -11,7 +11,6 @@ let btn = document.querySelector('.btn-img');
 let objective = document.querySelector('.objective');
 
 // Counters
-let gameCount = 0;
 let player = 0;
 let cpu = 0;
 
@@ -39,12 +38,13 @@ const resetGame = () => {
 
    gameMsg.hidden = true;
    btn.removeAttribute('disabled');
+   objective.hidden = false;
    resetGameMsg.hidden = true;
    btn.style.cursor = 'pointer';
 };
 
 
-// Play a round
+// Play a round, returns text result
 const playRound = (playerSelection, computerSelection) => {
    let result = '';
 
@@ -82,7 +82,7 @@ const roundResultMsg = (msg, playerSelection, computerSelection) => {
 
 };
 
-// Start the game onload
+// Play a game
 const game = () => {
 
    let roundResult = '';
@@ -91,6 +91,8 @@ const game = () => {
       .addEventListener('click', (e) => {
          roundResult = playRound(e.target.className, getComputerChoice());
 
+         // If user wins, they gain a point
+         // If user loses, CPU gains a point
          if (roundResult === 'win') {
             player++;
 
@@ -106,11 +108,13 @@ const game = () => {
             }
          }
 
+         // Updates player scores
          playerScore.innerHTML = `Player: ${player}`;
          cpuScore.innerHTML = `CPU: ${cpu}`;
       });
 };
 
+// When game is over, player cannot continue playing
 const gameOver = () => {
    gameMsg.hidden = false;
    resetGameMsg.hidden = false;
