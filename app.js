@@ -15,7 +15,7 @@ let gameCount = 0;
 let player = 0;
 let cpu = 0;
 
-// Return random move from array for computer
+// Returns random move for computer
 const getComputerChoice = () => {
    let choices = ['Rock', 'Paper', 'Scissors'];
    let choice = choices[Math.floor(Math.random() * choices.length)];
