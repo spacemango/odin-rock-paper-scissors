@@ -52,9 +52,7 @@ const playRound = (playerSelection, computerSelection) => {
       playerSelection === 'Scissors' && computerSelection === 'Paper' ||
       playerSelection === 'Paper' && computerSelection === 'Rock' ? result = 'win'
 
-      : playerSelection === 'Rock' && computerSelection === 'Rock' ||
-         playerSelection === 'Scissors' && computerSelection === 'Scissors' ||
-         playerSelection === 'Paper' && computerSelection === 'Paper' ? result = 'tie'
+      : playerSelection === computerSelection ? result = 'tie'
 
          : result = 'lose';
 
@@ -89,23 +87,20 @@ const game = () => {
 
    document.querySelector('.btn-img')
       .addEventListener('click', (e) => {
-         roundResult = playRound(e.target.className, getComputerChoice());
+         let playerChoice = e.target.className;
+         roundResult = playRound(playerChoice, getComputerChoice());
 
          // If user wins, they gain a point
          // If user loses, CPU gains a point
          if (roundResult === 'win') {
             player++;
 
-            if (player === 5) {
-               gameOver();
-            }
+            if (player === 5) { gameOver(); }
 
          } else if (roundResult === 'lose') {
             cpu++;
 
-            if (cpu === 5) {
-               gameOver();
-            }
+            if (cpu === 5) { gameOver(); }
          }
 
          // Updates player scores
