@@ -14,10 +14,11 @@
 
 body {
    height: 100vh;
-   background-color: var(--background-color);
    margin: 0;
+   background-color: var(--background-color);
    display: flex;
-   justify-content: center;
+   flex-direction: column;
+   align-items: center;
    font-family: 'Montserrat', sans-serif;
    color: var(--text);
    overflow: hidden;
@@ -28,16 +29,18 @@ p {
 }
 
 .container {
+   width: 60%;
    display: flex;
    flex-direction: column;
-   justify-content: center;
+   align-items: center;
+   text-align: center;
+   flex: 1;
 }
 
 h1 {
    font-family: 'Rubik Dirt', cursive;
    font-size: 50px;
    color: var(--secondary);
-   margin-bottom: 10px;
 }
 
 .game-result h1 {
@@ -55,7 +58,6 @@ h1 {
    display: flex;
    flex-direction: column;
    flex: 1;
-   justify-content: center;
    align-items: center;
    margin-bottom: 10px;
 }
@@ -72,6 +74,11 @@ h1 {
    margin: 10px;
    padding: 20px;
    text-align: center;
+}
+
+.result {
+   display: flex;
+   align-items: center;
 }
 
 .user-input button {
@@ -98,11 +105,16 @@ h1 {
 
 footer {
    background-color: var(--text);
-   color: var(--text-light);
    margin-top: 10px;
-   padding: 20px;
+   padding: 10px;
    display: flex;
    justify-content: center;
+   width: 100%
+}
+
+footer a {
+   color: var(--text-light);
+   text-decoration: none;
 }
 
 .reset-game {
